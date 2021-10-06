@@ -12,7 +12,7 @@ import sys
 
 from admin import API_KEY
 
-LOGGING = false
+LOGGING = False
 
 updater = Updater(token=API_KEY, use_context=True)
 dispatcher = updater.dispatcher
