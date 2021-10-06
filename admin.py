@@ -1,1 +1,1 @@
-API_KEY = '100000:your_api_token' # Replace with your telegram bot API token
+API_KEY = '1979352268:AAFyBKEKVf1f9rElLwM5VOPahYZxe3CPf7o'
