@@ -111,6 +111,44 @@ def ohno_command(update,context):
 ohno_handler = CommandHandler('ohno', ohno_command)
 dispatcher.add_handler(ohno_handler)
 
+def stfu_command(update,context):
+    """Sends a version of "stfu"..."""
+    text = random.choice([
+        "Please stfu",
+        "Your mouth very big ah",
+        "Can shut up anot",
+        "Keep quiet la",
+        "shhhhhhh",
+        "Don't understand how to shut up isit",
+        "Shut your trap",
+        "Stop letting the cat out of the bag",
+        "Be silent",
+        "Silence, fool!",
+        "woof woof stop barking bitch",
+        "stfu thanks",
+        "can shut your face",
+        "Pretty please SHUT UP",
+        "keep quiet or i threaten you with scissors",
+        "OI cb i said keep quiet right",
+        "Uno reverse, YOU stfu",
+        "Your mouth got problem is it that's why cannot shut up",
+        "very noisy leh u",
+        "stop making noise plz",
+        "zip it",
+        "Diam la",
+        "Which part of STFU do you not understand",
+        "nvm just keep talking only, I got the whole day",
+        "U then shut up",
+
+        ])
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text=text)
+
+stfu_handler = CommandHandler('stfu', stfu_command)
+dispatcher.add_handler(stfu_handler)
+
+
 def alive(context):
     with open('log.txt','a') as f:
         print(f"Bot last alive at {(datetime.datetime.utcnow() + datetime.timedelta(hours=8)).strftime('%m/%d/%Y, %H:%M:%S')}", file=f)
