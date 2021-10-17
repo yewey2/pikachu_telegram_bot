@@ -139,6 +139,7 @@ def stfu_command(update,context):
         "Which part of STFU do you not understand",
         "nvm just keep talking only, I got the whole day",
         "U then shut up",
+        "You looked smart. That\'s until you opened your mouth",
 
         ])
     context.bot.send_message(
