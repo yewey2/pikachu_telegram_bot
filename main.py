@@ -140,6 +140,13 @@ def stfu_command(update,context):
         "nvm just keep talking only, I got the whole day",
         "U then shut up",
         "You looked smart. That\'s until you opened your mouth",
+        "Was wondering what\'s that smell but realised it\'s the bullshit coming from your mouth",
+        "A moment of silence for the time wasted listening to your shit",
+        "hocus pocus gag a cockus",
+        "If silence is gold then you're definitely broke",
+        "Do you need a pacifier or will my dick suffice",
+        "stfu",
+        "bitch stfu",
 
         ])
     context.bot.send_message(
