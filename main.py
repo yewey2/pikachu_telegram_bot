@@ -149,7 +149,7 @@ def stfu_command(update,context):
         "bitch stfu",
         "shut your bazoo",
         "you might at least have the courtesy to keep your cakehole closed",
-        "the amazon rainforest can't replenish your oxygen",
+        "the amazon rainforest can\'t replenish the oxygen you\'ve wasted",
         "mumbo jumbo stfu dumbo",
         "why u breathing my oxygen",
         "You should plant a tree to make up for the oxygen you waste",
