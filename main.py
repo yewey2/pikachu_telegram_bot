@@ -172,6 +172,39 @@ def stfu_command(update,context):
 stfu_handler = CommandHandler('stfu', stfu_command)
 dispatcher.add_handler(stfu_handler)
 
+def oyasumi_command(update,context):
+    """Sends a version of "Good night"..."""
+    text = random.choice([
+        "Oyasuminasai",
+        "Good night!",
+        "Don\'t let the bed bugs bite...",
+        "Sleep tight",
+        "Sleep well :)",
+        "Sweet dreams",
+        "oyasumi",
+        "I can\'t wait to see you tomorrow!!",
+        "Nighty night",
+        "nites",
+        "zzzzzz",
+        "gnite",
+        "goodnight",
+        "Pleasant dreams...",
+        "Have a good night\'s rest",
+        "To dreamland and beyond!",
+        "See you in my dreams",
+        "Go to bed, sleepyhead!"
+        "おやすみなさい",
+        "bonne nuit",
+        "buenas noches",
+        "잘 자요"
+        ])
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text=text)
+
+oyasumi_handler = CommandHandler('oyasumi', oyasumi_command)
+dispatcher.add_handler(oyasumi_handler)
+
 def start_privately(update,context):
     """Ask the user to start privately"""
     if update.effective_chat.id <= 0:
