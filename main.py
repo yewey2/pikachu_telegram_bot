@@ -196,7 +196,11 @@ def oyasumi_command(update,context):
         "おやすみなさい",
         "bonne nuit",
         "buenas noches",
-        "잘 자요"
+        "잘 자요",
+        "😴",
+        "💤",
+        "🥱",
+        
         ])
     context.bot.send_message(
         chat_id=update.effective_chat.id,
