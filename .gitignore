@@ -130,3 +130,5 @@ dmypy.json
 
 # Admin information
 admin.py
+
+database/users/

@@ -12,6 +12,8 @@ import sys
 
 from admin import API_KEY
 
+import controllers
+
 LOGGING = False
 
 updater = Updater(token=API_KEY, use_context=True)
@@ -24,6 +26,14 @@ def start_command(update,context):
     context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=text)
+    if controllers.get_user(update.effective_chat.id) is None and update.effective_chat.id > 0:
+        controllers.new_user(
+            chat_id=update.effective_chat.id,
+            username=update.effective_chat.username, 
+            first_name=update.effective_chat.first_name,
+            last_name=update.effective_chat.last_name,
+        )
+
 start_handler = CommandHandler('start', start_command)
 dispatcher.add_handler(start_handler)
 
@@ -162,6 +172,52 @@ def stfu_command(update,context):
 stfu_handler = CommandHandler('stfu', stfu_command)
 dispatcher.add_handler(stfu_handler)
 
+def start_privately(update,context):
+    """Ask the user to start privately"""
+    if update.effective_chat.id <= 0:
+        context.bot.send_message(
+            chat_id=update.effective_chat.id,
+            text="Please send this privately!")
+        return False
+    user_data = controllers.get_user(update.effective_chat.id)
+    if user_data is None:
+        context.bot.send_message(
+            chat_id=update.effective_chat.id,
+            text="Please start me first!")
+        return False
+    return user_data
+
+def save_command(update,context):
+    """Save the info that the user sends"""
+    user_data = start_privately(update,context)
+    if not user_data:
+        return False
+    user_data['saved'].append(' '.join(context.args))
+    controllers.update_user(user_data)
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text="Saved!")
+
+save_handler = CommandHandler('save', save_command)
+dispatcher.add_handler(save_handler)
+
+def show_command(update,context):
+    user_data = start_privately(update,context)
+    if not user_data:
+        return False
+    saved = user_data.get('saved')
+    if saved:
+        context.bot.send_message(
+            chat_id=update.effective_chat.id,
+            text="Here are your saved messages:\n"+"\n".join(saved))
+    else:
+        context.bot.send_message(
+            chat_id=update.effective_chat.id,
+            text="You have nothing saved!")
+
+show_handler = CommandHandler('show', show_command)
+dispatcher.add_handler(show_handler)
+        
 
 def alive(context):
     with open('log.txt','a') as f:
