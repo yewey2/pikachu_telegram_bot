@@ -52,7 +52,7 @@ def pika_command(update,context):
             'pikachu6',
             'pikach',
             'pikach_memes',
-            'PikachyAnim'
+            'PikachyAnim',
             ]
         pikas = []
         for pika in pika_list:
@@ -193,7 +193,7 @@ def oyasumi_command(update,context):
         "Have a good night\'s rest",
         "To dreamland and beyond!",
         "See you in my dreams",
-        "Go to bed, sleepyhead!"
+        "Go to bed, sleepyhead!",
         "おやすみなさい",
         "bonne nuit",
         "buenas noches",
