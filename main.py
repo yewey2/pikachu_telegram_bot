@@ -51,7 +51,8 @@ def pika_command(update,context):
             'PikachuDetective',
             'pikachu6',
             'pikach',
-            'pikach_memes'
+            'pikach_memes',
+            'PikachyAnim'
             ]
         pikas = []
         for pika in pika_list:
