@@ -164,6 +164,7 @@ def stfu_command(update,context):
         "mumbo jumbo stfu dumbo",
         "why u breathing my oxygen",
         "You should plant a tree to make up for the oxygen you waste",
+        "Oh no! Anyway",
 
         ])
     context.bot.send_message(
