@@ -19,6 +19,20 @@ LOGGING = False
 updater = Updater(token=API_KEY, use_context=True)
 dispatcher = updater.dispatcher
 
+PIKA_STICKERPACK_NAMES = [
+    'pikachu',
+    'pikachu2',
+    'PikachuDetective',
+    'pikachu6',
+    'pikach',
+    'pikach_memes',
+    'PikachyAnim',
+    ]
+PIKA_LIST = []
+for pika in PIKA_STICKERPACK_NAMES:
+    PIKA_LIST.extend(updater.bot.get_sticker_set(pika).stickers)
+PIKA_LIST.extend(updater.bot.get_sticker_set('uwumon').stickers[:20])
+
 def start_command(update,context):
     """Initializes the bot"""
     text =  'Hello '+(update.message.from_user.first_name or '@'+update.message.from_user.username )+', this is the divine pikachu.\n'
@@ -45,20 +59,7 @@ def pika_command(update,context):
                 chat_id=update.effective_chat.id,
                 text="Pika... boo? 🙂"
             )
-        pika_list = [
-            'pikachu',
-            'pikachu2',
-            'PikachuDetective',
-            'pikachu6',
-            'pikach',
-            'pikach_memes',
-            'PikachyAnim',
-            ]
-        pikas = []
-        for pika in pika_list:
-            pikas.extend(context.bot.get_sticker_set(pika).stickers)
-        pikas.extend(context.bot.get_sticker_set('uwumon').stickers[:20])
-        pika = random.choice(pikas)
+        pika = random.choice(PIKA_LIST)
         context.bot.send_sticker(
             chat_id=update.effective_chat.id,
             sticker=pika
@@ -114,6 +115,16 @@ def ohno_command(update,context):
         "Are you sure you didn't mean 'Oh yes'?",
         "This is truly a disaster",
         "...",
+        "Aw dang",
+        "Ah sheet",
+        "Aw, Snap!",
+        "Tragedy strikes again",
+        "That's tragic",
+        "How unfortunate",
+        "oof",
+        "oops...!",
+        "lol, whoops",
+        "Oh no! Anyway",
         ])
     context.bot.send_message(
         chat_id=update.effective_chat.id,
@@ -164,8 +175,10 @@ def stfu_command(update,context):
         "mumbo jumbo stfu dumbo",
         "why u breathing my oxygen",
         "You should plant a tree to make up for the oxygen you waste",
-        "Oh no! Anyway",
-
+        "Damn, why are you like this?",
+        "Ah, an ideal world where you are silent...",
+        "*sniff sniff* Where's the bullshit coming from?",
+        "Well done! You have just earned yourself a \"STFU\"",
         ])
     context.bot.send_message(
         chat_id=update.effective_chat.id,
